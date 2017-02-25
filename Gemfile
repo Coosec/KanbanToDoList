@@ -56,3 +56,4 @@ gem 'materialize-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'bcrypt', platforms: :ruby
+gem 'font-awesome-rails'
