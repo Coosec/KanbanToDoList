@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MusicCatalog</title>
+    <title>Kanban to do list</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,8 +9,10 @@
   </head>
 
   <body>
-	<%= render 'layouts/header' %>
-  <p class="notice"><%= notice %></p><br><p class="alert"><%= alert %></p>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <p class="notice"><%= notice %></p><br><p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>

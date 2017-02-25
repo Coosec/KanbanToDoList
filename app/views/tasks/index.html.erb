@@ -1,12 +1,13 @@
-<div class="container">
-<%= link_to "<i class='fa fa-plus' aria-hidden='true'></i>".html_safe, new_task_path, class: "btn-floating btn-large green" %>
+  <div class="row">
+    <%= link_to 'New Task', new_task_path, class: "btn" %>
+  </div>
   <div class="row">
     <div class="col l4 s12">
     <h3>Open</h3>
       <%= render @open %>
     </div>
     <div class="col l4 s12">
-    <h3>WIP</h3>
+    <h3>In Progress</h3>
       <%= render @wip %>
     </div>
     <div class="col l4 s12">
@@ -14,7 +15,5 @@
       <%= render @closed %>
     </div>
   </div>
-  <div class="row">
-    <%= link_to 'New Task', new_task_path, class: "btn" %>
-  </div>
-</div>
+
+
