@@ -1,14 +1,13 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :change]
 
   # GET /tasks
   # GET /tasks.json
   def index
-    #@open = current_user.tasks.where(state: "open")
-    #@wip = current_user.tasks.where(state: "wip")
-    #@closed = current_user.tasks.where(state: "closed")
-    @tasks = current_user.tasks
+    @open = current_user.tasks.where(state: "open")
+    @wip = current_user.tasks.where(state: "wip")
+    @closed = current_user.tasks.where(state: "closed")
   end
 
   # GET /tasks/1
@@ -62,6 +61,13 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+  
+  def change
+    @task.update_attributes(state: params[:state])
+      respond_to do |format| 
+      format.html { redirect_to tasks_path, notice: "Task updated"}
     end
   end
 
